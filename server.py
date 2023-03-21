@@ -28,7 +28,12 @@ def index():
 
 @app.route("/showSummary", methods=["POST"])
 def show_summary():
-    club = [club for club in clubs if club["email"] == request.form["email"]][0]
+    try:
+        club = [club for club in clubs if club["email"] == request.form["email"]][0]
+    except IndexError as e:
+        flash("Error : invalid login email")
+        return redirect(url_for("index"))
+
     return render_template(
         "welcome.html",
         club=club,
