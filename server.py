@@ -68,7 +68,7 @@ def purchase_places():
     club = [c for c in clubs if c["name"] == request.form["club"]][0]
     places_required = int(request.form["places"])
     if places_required > int(competition["numberOfPlaces"]):
-        flash(f"Error : You require {places_required} "
+        flash(f"Purchase error : You require {places_required} "
               f"places for the competition but only {competition['numberOfPlaces']} left.")
     else:
         competition["numberOfPlaces"] = int(competition["numberOfPlaces"]) - places_required
