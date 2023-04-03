@@ -76,8 +76,12 @@ def purchase_places():
     elif places_required > int(competition["numberOfPlaces"]):
         flash(f"Purchase error : You require {places_required} "
               f"places for the competition but only {competition['numberOfPlaces']} left.")
+    elif places_required > int(club["points"]):
+        flash(f"Purchase error : You require {places_required} "
+              f"but you have only {club['points']} points.")
     else:
         competition["numberOfPlaces"] = int(competition["numberOfPlaces"]) - places_required
+        club["points"] = int(club["points"]) - places_required
         flash("Great-booking complete!")
     return render_template(
         "welcome.html",
