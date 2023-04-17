@@ -49,3 +49,10 @@
     We also like to show how well we're testing, so there's a module called 
     [coverage](https://coverage.readthedocs.io/en/coverage-5.1/) you should add to your project.
 
+   - You can launch tests from tests repertory with pytest with the command line :
+   ```
+   pytest tests
+   ```
+   todo : add export flask_app
+   todo : add coverage to rq.txt
+   todo : using of coverage + reports

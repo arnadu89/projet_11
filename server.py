@@ -44,13 +44,13 @@ def show_summary():
 
 @app.route("/book/<competition>/<club>")
 def book(competition, club):
-    found_club = [c for c in clubs if c["name"] == club][0]
-    found_competition = [c for c in competitions if c["name"] == competition][0]
+    found_club = [c for c in clubs if c["name"] == club]
+    found_competition = [c for c in competitions if c["name"] == competition]
     if found_club and found_competition:
         return render_template(
             "booking.html",
-            club=found_club,
-            competition=found_competition
+            club=found_club[0],
+            competition=found_competition[0]
         )
     else:
         flash("Something went wrong-please try again")
@@ -80,8 +80,8 @@ def purchase_places():
         flash(f"Purchase error : You require {places_required} "
               f"but you have only {club['points']} points.")
     else:
-        competition["numberOfPlaces"] = int(competition["numberOfPlaces"]) - places_required
-        club["points"] = int(club["points"]) - places_required
+        competition["numberOfPlaces"] = str(int(competition["numberOfPlaces"]) - places_required)
+        club["points"] = str(int(club["points"]) - places_required)
         flash("Great-booking complete!")
     return render_template(
         "welcome.html",
