@@ -191,7 +191,7 @@ def test_purchase_more_than_club_points(mocker):
     assert b"Purchase error" in response.data
 
 
-def test_puchase_outdated_competition(mocker):
+def test_purchase_outdated_competition(mocker):
     clubs = [{
         "name": "test_club",
         "points": "10",
