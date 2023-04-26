@@ -53,6 +53,3 @@
    ```
    pytest tests
    ```
-   todo : add export flask_app
-   todo : add coverage to rq.txt
-   todo : using of coverage + reports
